@@ -3,7 +3,7 @@
 # Akbank .Net Bootcamp Ödevi
 Akbank ve patikadev tarafından gerçekleştirilen Asp.Net eğitimi sürecinde verilen ilkinci ödev. Bu projede bizden canlı dersimiz esnasında oluşturulan modeller icin Controller larin GET GETbyId PUT POST DELETE methodlari olacak hazirlanmasi olacak.
 
-[Akbank .Net Bootcamp Ödev 1](https://www.google.com)
+[Akbank .Net Bootcamp Ödev 1](https://github.com/300-Akbank-Net-Bootcamp/aw-1-ysfArslan1)
 
 ## Controller oluşturulması :
 Canlı ders sırasında oluşturulan controller'lar oluşturuldu ve istenilen metotlar eklendi. 
