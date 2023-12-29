@@ -1,31 +1,29 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/GfoSvSyx)
 
-1- migration olusturma 
-Dbcontext in oldugu projede
-    dotnet ef migrations add UniqueMigrationName -s Vb.Api/
-    dotnet ef migrations add mig1 --project Vb.Data --startup-project Vb.Api
+# Akbank .Net Bootcamp Ödevi
+Akbank ve patikadev tarafından gerçekleştirilen Asp.Net eğitimi sürecinde verilen ilkinci ödev. Bu projede bizden canlı dersimiz esnasında oluşturulan modeller icin Controller larin GET GETbyId PUT POST DELETE methodlari olacak hazirlanmasi olacak.
 
-2- migration degisikliklerini db ye gecme yansitma guncelle migrate etme
-Olusan migrationlarin calistirilmasi 
-sln dizininde 
-    dotnet ef database update --project "./Vb.Data" --startup-project "./Vb.Api"
+[Akbank .Net Bootcamp Ödev 1](https://www.google.com)
+
+## Controller oluşturulması :
+Canlı ders sırasında oluşturulan controller'lar oluşturuldu ve istenilen metotlar eklendi. 
 
 
---ortak proje yapisinda 
-dotnet ef migrations add UniqueMigrationName
-dotnet ef database update
+![Resim Açıklaması](images/c1.jpeg)
+![Resim Açıklaması](images/c2.jpeg)
 
-# Yapılacaklar
-- katmanlı mimariyi oluştur. $
-- database baglantısını oluştur.$
-- controllerları olustur.$
-- Data genereter sınıfını oluştur.$
-- Validation sınıfını oluştur. &
-- metotların içerisindeki error handlenerları kontrol et, 
-- AccountControllera bakıldı$
-- metotların içindeki validation sınıflarını kontrol et,
-- yorumları yaz
-- readme.md dosyası oluştur.
+## Proje Yapısı ve Kod Blokları:
+- proje farklı katmanlardan oluşmaktasır. Api katmanı wep api dosyalarının bulundugu katman. Base katmanı projede temel olarak kullanılan dosyaların bulundugu katman. Bussiness katmanı şuan kullanılmasada validation ve automapping işlemlerinin gerçekleşecegi katman. Data katmanı Database baglantısının yapıldıgı ve Database ile ilgili dosyaların bulundugu katman.
+
+- Projede Database olarak microsoft sql server kullanıldı . Migration eklemek için kullanılan komut:
+    ```
+        dotnet ef migrations add mig1 --project Vb.Data --startup-project Vb.Api
+    ```
+-  Eklenen Migrationların uygulanması için kullanılan komut:
+    ```
+           dotnet ef database update --project "./Vb.Data" --startup-project "./Vb.Api"
+    ```
+
+    ![Resim Açıklaması](images/k1.jpeg)
 
 
-# auto mapper dosyalarını , Business katmanında tutacagım
