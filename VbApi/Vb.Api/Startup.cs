@@ -20,12 +20,10 @@ public class Startup
             options.UseSqlServer(Configuration.GetConnectionString("MsSqlConnection"),sqlOptions =>
             {
                 sqlOptions.MigrationsAssembly("Vb.Data");
-                // Diðer SQL Server seçeneklerini burada da yapýlandýrabilirsiniz.
             });
 
         });
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
-        //services.AddDbContext<VbDbContext>(options => options.UseNpgsql(connection));
 
         services.AddControllers();
         

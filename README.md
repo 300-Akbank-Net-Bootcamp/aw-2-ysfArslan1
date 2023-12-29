@@ -11,6 +11,7 @@ Canlı ders sırasında oluşturulan controller'lar oluşturuldu ve istenilen me
 
 ![Resim Açıklaması](images/c1.jpeg)
 ![Resim Açıklaması](images/c2.jpeg)
+![Resim Açıklaması](images/s1.jpeg)
 
 ## Proje Yapısı ve Kod Blokları:
 - proje farklı katmanlardan oluşmaktasır. Api katmanı wep api dosyalarının bulundugu katman. Base katmanı projede temel olarak kullanılan dosyaların bulundugu katman. Bussiness katmanı şuan kullanılmasada validation ve automapping işlemlerinin gerçekleşecegi katman. Data katmanı Database baglantısının yapıldıgı ve Database ile ilgili dosyaların bulundugu katman.

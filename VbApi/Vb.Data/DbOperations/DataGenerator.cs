@@ -7,7 +7,7 @@ namespace PatikaGenelWepApi.DBOperations;
 
 public class DataGenerator
 {
-    //inmemory de data üretmek içinkullanılıyor // program.cs de çalıştırılıyor
+    //Database de data üretmek içinkullanılıyor // program.cs de çalıştırılıyor
     public static void Initialize(IServiceProvider serviceProvider)
     {
         using (var content = new VbDbContext(serviceProvider.GetRequiredService<DbContextOptions<VbDbContext>>())) 
@@ -394,111 +394,7 @@ public class DataGenerator
             );
 
             content.SaveChanges();
-            /*
-            {
-      "id": 0,
-      "insertUserId": 0,
-      "insertDate": "2023-12-26T20:14:53.365Z",
-      "updateUserId": 0,
-      "updateDate": "2023-12-26T20:14:53.365Z",
-      "isActive": true,
-      "identityNumber": "string",
-      "firstName": "string",
-      "lastName": "string",
-      "customerNumber": 0,
-      "dateOfBirth": "2023-12-26T20:14:53.365Z",
-      "lastActivityDate": "2023-12-26T20:14:53.365Z",
-      "addresses": [
-        {
-          "id": 0,
-          "insertUserId": 0,
-          "insertDate": "2023-12-26T20:14:53.365Z",
-          "updateUserId": 0,
-          "updateDate": "2023-12-26T20:14:53.365Z",
-          "isActive": true,
-          "customerId": 0,
-          "customer": "string",
-          "address1": "string",
-          "address2": "string",
-          "country": "string",
-          "city": "string",
-          "county": "string",
-          "postalCode": "string",
-          "isDefault": true
-        }
-      ],
-      "contacts": [
-        {
-          "id": 0,
-          "insertUserId": 0,
-          "insertDate": "2023-12-26T20:14:53.365Z",
-          "updateUserId": 0,
-          "updateDate": "2023-12-26T20:14:53.365Z",
-          "isActive": true,
-          "customerId": 0,
-          "customer": "string",
-          "contactType": "string",
-          "information": "string",
-          "isDefault": true
-        }
-      ],
-      "accounts": [
-        {
-          "id": 0,
-          "insertUserId": 0,
-          "insertDate": "2023-12-26T20:14:53.365Z",
-          "updateUserId": 0,
-          "updateDate": "2023-12-26T20:14:53.365Z",
-          "isActive": true,
-          "customerId": 0,
-          "customer": "string",
-          "accountNumber": 0,
-          "iban": "string",
-          "balance": 0,
-          "currencyType": "string",
-          "name": "string",
-          "openDate": "2023-12-26T20:14:53.365Z",
-          "accountTransactions": [
-            {
-              "id": 0,
-              "insertUserId": 0,
-              "insertDate": "2023-12-26T20:14:53.365Z",
-              "updateUserId": 0,
-              "updateDate": "2023-12-26T20:14:53.365Z",
-              "isActive": true,
-              "accountId": 0,
-              "account": "string",
-              "referenceNumber": "string",
-              "transactionDate": "2023-12-26T20:14:53.365Z",
-              "amount": 0,
-              "description": "string",
-              "transferType": "string"
-            }
-          ],
-          "eftTransactions": [
-            {
-              "id": 0,
-              "insertUserId": 0,
-              "insertDate": "2023-12-26T20:14:53.365Z",
-              "updateUserId": 0,
-              "updateDate": "2023-12-26T20:14:53.365Z",
-              "isActive": true,
-              "accountId": 0,
-              "account": "string",
-              "referenceNumber": "string",
-              "transactionDate": "2023-12-26T20:14:53.365Z",
-              "amount": 0,
-              "description": "string",
-              "senderAccount": "string",
-              "senderIban": "string",
-              "senderName": "string"
-            }
-          ]
-        }
-      ]
-    }
-             */
-
+            
         }
     }
 }

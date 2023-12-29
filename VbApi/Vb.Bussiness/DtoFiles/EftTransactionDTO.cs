@@ -1,7 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Vb.Base.Entity;
+
 
 namespace Vb.Bussiness.DtoFiles;
 

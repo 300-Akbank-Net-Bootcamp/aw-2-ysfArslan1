@@ -21,9 +21,6 @@ public class AccountController : ControllerBase
     [HttpGet]
     public async Task<ActionResult> Get()
     {
-        //return await dbContext.Set<Account>()
-        //    .ToListAsync();
-
         try
         {
             var _list = await dbContext.Set<Account>().ToListAsync();
@@ -42,10 +39,6 @@ public class AccountController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult> Get(int id)
     {
-        //var account =  await dbContext.Set<Account>().Where(x => x.Id == id).FirstOrDefaultAsync();
-
-        //return account;
-
         try
         {
             var account = await dbContext.Set<Account>().Where(x => x.Id == id).FirstOrDefaultAsync();
@@ -66,8 +59,6 @@ public class AccountController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Post([FromBody] Account account)
     {
-        //await dbContext.Set<Account>().AddAsync(account);
-        //await dbContext.SaveChangesAsync();
         try
         {
             if (account == null)
@@ -94,10 +85,6 @@ public class AccountController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult> Put(int id, [FromBody] Account updateAccount)
     {
-        //var _account = await dbContext.Set<Account>().Where(x => x.Id == id).FirstOrDefaultAsync();
-
-        //dbContext.Accounts.Update(_account);
-        //await dbContext.SaveChangesAsync();
         try
         {
             if (id != updateAccount.Id)
@@ -125,9 +112,6 @@ public class AccountController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-        //var _account = await dbContext.Set<Account>().Where(x => x.Id == id).FirstOrDefaultAsync();
-        //_account.IsActive = false;
-        //await dbContext.SaveChangesAsync();
 
         try
         {
