@@ -24,8 +24,9 @@ public class Startup
             });
 
         });
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
         //services.AddDbContext<VbDbContext>(options => options.UseNpgsql(connection));
-        
+
         services.AddControllers();
         
         services.AddEndpointsApiExplorer();

@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vb.Base", "Vb.Base\Vb.Base.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vb.Data", "Vb.Data\Vb.Data.csproj", "{5EDBC4CE-7073-4AF7-AB22-3B8256962474}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vb.Bussiness", "Vb.Bussiness\Vb.Bussiness.csproj", "{1EC88EE2-9B0F-41D1-86BA-7418530D43CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5EDBC4CE-7073-4AF7-AB22-3B8256962474}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EDBC4CE-7073-4AF7-AB22-3B8256962474}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EDBC4CE-7073-4AF7-AB22-3B8256962474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC88EE2-9B0F-41D1-86BA-7418530D43CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC88EE2-9B0F-41D1-86BA-7418530D43CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC88EE2-9B0F-41D1-86BA-7418530D43CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC88EE2-9B0F-41D1-86BA-7418530D43CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

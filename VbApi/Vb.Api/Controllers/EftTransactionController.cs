@@ -17,42 +17,115 @@ public class EftTransactionController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<EftTransaction>> Get()
+    public async Task<ActionResult> Get()
     {
-        return await dbContext.Set<EftTransaction>()
-            .ToListAsync();
+        try
+        {
+            var _list = await dbContext.Set<EftTransaction>().ToListAsync();
+            if (_list == null)
+            {
+                return NotFound(); // 404 Not Found : Ýstenen kaynak bulunamadý.
+            }
+            return Ok(_list); // 200 OK: Yapýlan istek baþarýlý.
+        }
+        catch (Exception ex)
+        {// 500: Sunucu hatasý nedeniyle iþlem
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 
     [HttpGet("{id}")]
-    public async Task<EftTransaction> Get(int id)
+    public async Task<ActionResult> Get(int id)
     {
-        var item =  await dbContext.Set<EftTransaction>()
-            .Where(x => x.Id == id).FirstOrDefaultAsync();
-       
-        return item;
+        try
+        {
+            var item = await dbContext.Set<EftTransaction>().Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (item == null)
+            {
+                return NotFound(); //404 Not Found : Ýstenen kaynak bulunamadý.
+            }
+
+            return Ok(item); //200 OK: Yapýlan istek baþarýlý.
+        }
+        catch (Exception ex)
+        {// 500: Sunucu hatasý nedeniyle iþlem
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 
     [HttpPost]
-    public async Task Post([FromBody] EftTransaction item)
+    public async Task<ActionResult> Post([FromBody] EftTransaction item)
     {
-        await dbContext.Set<EftTransaction>().AddAsync(item);
-        await dbContext.SaveChangesAsync();
+        try
+        {
+            if (item == null)
+            {
+                return BadRequest(); // 400 Bad Request: Ýstek geçersiz veya eksik bilgi içeriyor.
+            }
+
+
+            await dbContext.Set<EftTransaction>().AddAsync(item);
+            await dbContext.SaveChangesAsync();
+            return new ObjectResult(item)
+            {
+                StatusCode = StatusCodes.Status201Created // 201 Created: Kayýt baþarýlý.
+            };
+
+        }
+        catch (Exception ex)
+        {// 500: Sunucu hatasý nedeniyle iþlem
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 
     [HttpPut("{id}")]
-    public async Task Put(int id, [FromBody] EftTransaction item)
+    public async Task<ActionResult> Put(int id, [FromBody] EftTransaction item)
     {
-        var _item = await dbContext.Set<EftTransaction>().Where(x => x.Id == id).FirstOrDefaultAsync();
-        dbContext.Set<EftTransaction>().Update(_item);
+        try
+        {
+            if (id != item.Id)
+            {
+                return BadRequest();// 400 Bad Request: Ýstek geçersiz veya eksik bilgi içeriyor.
+            }
 
-        await dbContext.SaveChangesAsync();
+            var _item = await dbContext.Set<EftTransaction>().Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (_item == null)
+            {
+                return NotFound(); // 404 Not Found : Ýstenen kaynak bulunamadý.
+            }
+            dbContext.EftTransactions.Update(_item);
+            await dbContext.SaveChangesAsync();
+            return Ok(); //200 OK: Yapýlan istek baþarýlý.
+
+
+        }
+        catch (Exception ex)
+        {// 500: Sunucu hatasý nedeniyle iþlem
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 
     [HttpDelete("{id}")]
-    public async Task Delete(int id)
+    public async Task<ActionResult> Delete(int id)
     {
-        var _item = await dbContext.Set<EftTransaction>().Where(x => x.Id == id).FirstOrDefaultAsync();
-        _item.IsActive = false;
-        await dbContext.SaveChangesAsync();
+        try
+        {
+
+            var item = await dbContext.Set<EftTransaction>().Where(x => x.Id == id).FirstOrDefaultAsync();
+
+            if (item == null)
+            {
+                return NotFound(); // 404 Not Found : Ýstenen kaynak bulunamadý.
+            }
+
+            item.IsActive = false;
+            dbContext.Update(item);
+            await dbContext.SaveChangesAsync();
+            return Ok(); //200 OK: Yapýlan istek baþarýlý.
+        }
+        catch (Exception ex)
+        {// 500: Sunucu hatasý nedeniyle iþlem
+            return StatusCode(500, $"Internal server error: {ex.Message}");
+        }
     }
 }
